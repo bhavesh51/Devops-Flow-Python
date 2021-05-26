@@ -9,6 +9,7 @@ pipeline {
         stage("Branch To Build") {
             steps {
                 echo 'build'
+                sh 'python3 main.py'
             }
         }
     }
