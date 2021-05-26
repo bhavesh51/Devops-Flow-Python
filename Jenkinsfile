@@ -1,18 +1,16 @@
 pipeline {
     agent any
-
     stages {
-        stage('Checkout') {
+        stage("Checkout") {
             steps {
-                echo 'Check out'
+                   echo 'Checkout' 
+                }
+            }
+        stage("Branch To Build") {
+            steps {
+                echo 'build'
             }
         }
-        stage('Build') {
-            steps {
-                echo 'Build'
-            }
-        }
-        
-        
     }
+
 }
