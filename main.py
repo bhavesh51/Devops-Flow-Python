@@ -7,7 +7,7 @@ def hello_world():
 
 @app.route('/home')
 def home():
-    return 'home page'
+    return 'welcome to home page'
 
 if __name__ == '__main__':
     app.run()
