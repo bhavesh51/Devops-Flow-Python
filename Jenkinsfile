@@ -8,9 +8,10 @@ pipeline {
             }
         stage("Branch To Build") {
             steps {
-                echo 'build'
-                sh 'pip install -r requirements.txt'
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                sh "pip install -r requirements.txt --user"
                 sh 'python3 main.py'
+                }
             }
         }
     }
