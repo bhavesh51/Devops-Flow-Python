@@ -13,15 +13,16 @@ pipeline {
                               ls
                               pip install --user -r requirements.txt
                               export PATH="$WORKSPACE/.local/bin:$PATH"
-                              python3 test.py
+                              
                                 '''
             }
         }
     }
     stage('run') {
       steps {
-        echo 'Hello'
-        sh 'python3 test.py'
+          withEnv(["HOME=${env.WORKSPACE}"]) {
+              sh 'python3 test.py'
+          }
       }   
     }
   }
