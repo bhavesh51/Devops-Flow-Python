@@ -1,17 +1,16 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
-    
-    stages {
-        stage("Checkout") {
-            steps {
-                   echo 'Checkout' 
-                }
-            }
-        stage("Branch To Build") {
-            steps {
-                echo 'build'
-            }
-        }
+    agent { docker { image 'python:3.7.2' } }
+  stages {
+    stage('build') {
+      steps {
+        sh 'pip install -r requirements.txt'
+      }
     }
+    stage('test') {
+      steps {
+        sh 'python3 main.py'
+      }   
+    }
+  }
 
 }
