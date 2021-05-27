@@ -4,16 +4,16 @@ pipeline {
  
     stage('build') {
         steps {
-                withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh 'pip install --user -r requirements.txt'
-                    sh 'python test.py'
-                }
+                sh 'virtualenv venv --distribute'
+                sh 'source venv/bin/activate '
+                sh 'pip install --user -r requirements.txt'
+                sh 'python3 test.py'
             }
     }
     stage('test') {
       steps {
         echo 'Hello'
-        sh 'python test.py'
+        sh 'python3 test.py'
       }   
     }
   }
