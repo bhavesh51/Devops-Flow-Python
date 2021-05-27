@@ -13,6 +13,7 @@ pipeline {
                               ls
                               pip install --user -r requirements.txt
                               export PATH="$WORKSPACE/.local/bin:$PATH"
+                              python3 test.py
                                 '''
             }
         }
