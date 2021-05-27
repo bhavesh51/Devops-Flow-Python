@@ -4,11 +4,14 @@ pipeline {
         stage("Checkout") {
             steps {
                    echo 'Checkout' 
+                   workspace = env.WORKSPACE
+                    echo '${workspace}'
+
                 }
             }
         stage("Branch To Build") {
             steps {
-                sh '$PATH'
+                echo 'build'
             }
         }
     }
