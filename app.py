@@ -10,5 +10,10 @@ def hello_world():
 def hello_user(username):
     return 'Why Hello %s!\n' % username
 
+@app.route('/perfectvips') # dynamic route
+def hello_user(employeename):
+    return 'Employee Name: %s\n' % employeename
+
+
 if __name__ == '__main__':
     app.run()
