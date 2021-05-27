@@ -4,11 +4,13 @@ pipeline {
     stage('build') {
       steps {
         sh 'python3 -V'
+        sh 'pip install -r requirements.txt'
       }
     }
     stage('test') {
       steps {
         echo 'Hello'
+        sh 'python test.py'
       }   
     }
   }
