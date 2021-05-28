@@ -10,6 +10,10 @@ def hello_world():
 def hello_devops():
     return 'Hello from devops!\n'
 
+@app.route('/about/')
+def about():
+    return 'about us page\n'
+
 @app.route('/hello/<username>') # dynamic route
 def hello_user(username):
     return 'Why Hello %s!\n' % username
