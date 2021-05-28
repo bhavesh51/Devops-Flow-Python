@@ -22,6 +22,9 @@ def hello_user(username):
 def perfectvips():
     return 'hello from perfectvips'
 
+@app.route('/city') # dynamic route
+def city():
+    return 'call from city method'
 
 if __name__ == '__main__':
     app.run()
