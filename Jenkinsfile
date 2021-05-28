@@ -25,11 +25,6 @@ pipeline {
           }
       }   
     }
-    stage('Deployment') {
-      steps {
-            sh 'docker version'
-      }   
-    }
   }
   post {
         always {
