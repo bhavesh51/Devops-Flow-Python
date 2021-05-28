@@ -28,7 +28,7 @@ pipeline {
     stage('Deployment') {
       steps {
           withEnv(["HOME=${env.WORKSPACE}"]) {
-              sh 'docker-compose up'
+              sh 'docker version'
           }
       }   
     }
