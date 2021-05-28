@@ -25,13 +25,6 @@ pipeline {
           }
       }   
     }
-    stage('Deployment') {
-      steps {
-          withEnv(["HOME=${env.WORKSPACE}"]) {
-              sh 'docker version'
-          }
-      }   
-    }
   }
   post {
         always {
