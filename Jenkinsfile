@@ -32,7 +32,7 @@ pipeline {
       agent any
       steps {
           sh 'docker version'
-          sh 'docker build -t devopsflow51'
+          sh 'docker build -t python-docker-demo51 .'
           sh 'docker image list'
       }   
     }
