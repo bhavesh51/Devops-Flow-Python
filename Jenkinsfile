@@ -37,6 +37,13 @@ pipeline {
           sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
       }   
     }
+
+    stage("Docker Push"){
+      agent any
+      steps {
+          sh 'docker push bhavesh51/devops_flow:latest'
+        }
+    } 
     
   }
   post {
