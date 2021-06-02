@@ -28,11 +28,7 @@ pipeline {
 
     stage('docker') {
       steps {
-          withEnv(["HOME=${env.WORKSPACE}"]) {
-              sh 'usermod -aG docker $USER'
-              sh 'usermod -aG docker jenkins'
-              sh 'docker version'
-          }
+          sh 'docker version'
       }   
     }
     
