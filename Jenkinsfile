@@ -34,6 +34,7 @@ pipeline {
           sh 'docker version'
           sh 'docker build -t python-docker-demo51 .'
           sh 'docker image list'
+          sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
       }   
     }
     
