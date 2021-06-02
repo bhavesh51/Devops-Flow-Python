@@ -1,9 +1,10 @@
 pipeline {
-  agent { docker { image 'python:3.6.9' } }
+  agent none
+  
   stages {
- 
-        stage('build') {
-        steps {
+    stage('build') {
+      agent { docker { image 'python:3.6.9' } }
+      steps {
             withEnv(["HOME=${env.WORKSPACE}"]) {
             sh script:'''
                             #/bin/bash
@@ -19,6 +20,7 @@ pipeline {
         }
     }
     stage('run') {
+      agent { docker { image 'python:3.6.9' } }
       steps {
           withEnv(["HOME=${env.WORKSPACE}"]) {
               sh 'python3 test.py'
@@ -27,6 +29,7 @@ pipeline {
     }
 
     stage('docker') {
+      agent any
       steps {
           sh 'docker version'
       }   
