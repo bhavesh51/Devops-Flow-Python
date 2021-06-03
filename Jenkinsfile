@@ -28,14 +28,12 @@ pipeline {
       }   
     }
 
-    // stage('docker login'){
-    //   agent any
-    //   steps{
-    //       withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-    //           sh 'docker login -u bhavesh51 -p $PASSWORD'
-    //       }
-    //   }
-    // }
+    stage('docker login'){
+      agent any
+      steps{
+              sh 'docker login -u bhavesh51 -p cb13fa99-aa57-43da-b4ef-f7e7852a2f43'
+      }
+    }
 
     stage('docker') {
       agent any
