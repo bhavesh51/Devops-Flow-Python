@@ -28,12 +28,19 @@ pipeline {
       }   
     }
 
+    stage('docker login'){
+      agent any
+      steps{
+          withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+              sh 'docker login -u bhavesh51 -p $PASSWORD'
+          }
+      }
+    }
+
     stage('docker') {
       agent any
       steps {
-        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-              sh 'docker login -u bhavesh51 -p $PASSWORD'
-          }
+        
           sh 'docker version'
           sh 'docker build -t python-docker-demo51 .'
           sh 'docker image list'
