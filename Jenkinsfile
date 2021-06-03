@@ -28,14 +28,14 @@ pipeline {
       }   
     }
 
-    stage('docker login'){
-      agent any
-      steps{
-          withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-              sh 'docker login -u bhavesh51 -p $PASSWORD'
-          }
-      }
-    }
+    // stage('docker login'){
+    //   agent any
+    //   steps{
+    //       withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+    //           sh 'docker login -u bhavesh51 -p $PASSWORD'
+    //       }
+    //   }
+    // }
 
     stage('docker') {
       agent any
@@ -48,12 +48,12 @@ pipeline {
       }   
     }
 
-    stage("Docker Push"){
-      agent any
-      steps {
-          sh 'docker push bhavesh51/devops_flow:latest'
-        }
-    } 
+    // stage("Docker Push"){
+    //   agent any
+    //   steps {
+    //       sh 'docker push bhavesh51/devops_flow:latest'
+    //     }
+    // } 
     
   }
   post {
