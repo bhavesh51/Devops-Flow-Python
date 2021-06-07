@@ -28,9 +28,7 @@ pipeline {
       }   
     }
 
-    withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-        sh 'docker login -u bhavesh51 -p $PASSWORD'
-    }
+    
 
     stage('docker') {
       agent any
@@ -39,7 +37,7 @@ pipeline {
           sh 'docker version'
           sh 'docker build -t python-docker-demo51 .'
           sh 'docker image list'
-          sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
+         // sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
       }   
     }
 
