@@ -26,5 +26,9 @@ def perfectvips():
 def city():
     return 'call from city method'
 
+@app.route('/city1') # dynamic route
+def city1():
+    return 'call from city1 method'
+
 if __name__ == '__main__':
     app.run()
