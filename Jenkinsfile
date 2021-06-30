@@ -26,10 +26,7 @@ pipeline {
               sh 'python3 test.py'
           }
       }   
-    }
-
-    
-
+    }  
     stage('docker') {
       agent any
       steps {
@@ -41,12 +38,12 @@ pipeline {
       }   
     }
 
-    // stage("Docker Push"){
-    //   agent any
-    //   steps {
-    //       sh 'docker push bhavesh51/devops_flow:latest'
-    //     }
-    // } 
+    stage("Run Ansible"){
+      agent any
+      steps {
+          sh 'ansible-playbook automation.yaml'
+        }
+    } 
     
   }
   post {
