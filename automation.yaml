@@ -1,8 +1,20 @@
 ---
-- name: Hello World!
-  hosts: all
- 
-  tasks:
- 
-  - name: Hello World!
-    shell: echo "Hi! Tower is working."
+ - hosts: localhost
+   remote_user: test
+   tasks:
+     - name: get docker version
+       shell: "docker -v | cut -d ' ' -f 3 | cut -d ',' -f 1"
+       register: version
+
+     - name: docker image list
+       shell: "echo docker images"
+
+     - debug: var=version.stdout
+
+     - name: do something if version is 1.13.0
+       shell: "echo it is 1.13.0"
+       when: version.stdout == "1.13.0"
+
+     - name: do nothing if version is 1.13.0
+       shell: "echo nothing"
+       when: version.stdout != "1.13.0"

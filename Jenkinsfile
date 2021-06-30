@@ -44,6 +44,13 @@ pipeline {
           sh 'ansible-playbook automation.yaml'
         }
     } 
+
+    stage("Kubernetes Deployment"){
+      agent any
+      steps {
+          sh 'kubectl version'
+        }
+    }
     
   }
   post {
