@@ -8,5 +8,5 @@ EXPOSE 5000
 COPY . .
 CMD ["flask", "run"]
 ENTRYPOINT [ "python" ]
-CMD ["app.py"]
 CMD ["test.py"]
+CMD ["app.py"]

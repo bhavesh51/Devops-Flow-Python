@@ -48,7 +48,7 @@ pipeline {
     stage("Kubernetes Deployment"){
       agent any
       steps {
-          sh 'kubectl version'
+          sh 'kubectl apply -f deployment.yaml'
         }
     }
     
