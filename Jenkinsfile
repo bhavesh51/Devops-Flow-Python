@@ -32,7 +32,7 @@ pipeline {
       steps {
         
           sh 'docker version'
-          sh 'docker build --tag python-full-devops .'
+          sh 'docker build --tag python-docker .'
           sh 'docker image list'
          // sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
       }   

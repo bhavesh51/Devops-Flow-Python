@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-python-service
+  name: python-docker-service
 spec:
   selector:
-    app: flask-python
+    app: python-docker
   ports:
   - protocol: "TCP"
     port: 6000
@@ -15,20 +15,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-python
+  name: python-docker
 spec:
   selector:
     matchLabels:
-      app: flask-python
+      app: python-docker
   replicas: 4
   template:
     metadata:
       labels:
-        app: flask-python
+        app: python-docker
     spec:
       containers:
-      - name: flask-python
-        image: flask-python:latest
+      - name: python-docker
+        image: python-docker:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
