@@ -38,12 +38,22 @@ pipeline {
       }   
     }
 
-    stage("Automate and Deployment"){
+    stage("Automate"){
       agent any
       steps {
           sh 'ansible-playbook automation.yaml'
         }
-    } 
+    }
+
+    stage("Deployment"){
+      agent any
+      steps {
+          sh 'minikube start'
+          sh 'minikube status'
+          sh 'kubectl create namespace jenkins'
+          sh 'get namespaces'
+        }
+    }
 
     
   }

@@ -12,8 +12,8 @@
      - name: docker build image
        shell: "docker build -f Dockerfile -t python-docker ."
 
-     - name: Kubernetes Deployment
-       shell: "kubectl apply -f deployment.yaml"
+    #  - name: Kubernetes Deployment
+    #    shell: "kubectl apply -f deployment.yaml"
 
      - debug: var=version.stdout
 
