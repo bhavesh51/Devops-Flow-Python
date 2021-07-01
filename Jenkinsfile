@@ -34,7 +34,7 @@ pipeline {
           sh 'docker version'
           //sh 'docker build --tag python-docker .'
           sh 'docker image list'
-          sh 'docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+          //sh 'docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
          // sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
       }   
     }
