@@ -50,6 +50,7 @@ pipeline {
       agent any
       steps {
           sh 'eval $(minikube docker-env)'
+          sh 'kubectl config get-contexts'
           sh 'kubectl apply -f deployment.yaml'
         }
     }
