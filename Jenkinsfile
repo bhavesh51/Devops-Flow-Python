@@ -46,15 +46,15 @@ pipeline {
         }
     }
 
-    stage("Deployment"){
-      agent any
-      steps {
-          sh 'eval $(minikube docker-env)'
-          sh 'kubectl config get-contexts'
-          sh 'kubectl cluster-info'
-          sh 'kubectl apply -f deployment.yaml'
-        }
-    }
+    // stage("Deployment"){
+    //   agent any
+    //   steps {
+    //       sh 'eval $(minikube docker-env)'
+    //       sh 'kubectl config get-contexts'
+    //       sh 'kubectl cluster-info'
+    //       sh 'kubectl apply -f deployment.yaml'
+    //     }
+    // }
 
     
   }
