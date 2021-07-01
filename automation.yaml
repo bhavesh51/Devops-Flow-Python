@@ -8,6 +8,9 @@
 
      - name: docker image list
        shell: "echo docker images"
+      
+     - name: docker build image
+       shell: "docker build -f Dockerfile -t python-docker ."
 
      - debug: var=version.stdout
 
