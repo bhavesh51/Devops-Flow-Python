@@ -34,6 +34,7 @@ pipeline {
           sh 'docker version'
           //sh 'docker build --tag python-docker .'
           sh 'docker image list'
+          sh 'docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
          // sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
       }   
     }
@@ -49,9 +50,6 @@ pipeline {
       agent any
       steps {
           sh 'eval $(minikube docker-env)'
-          sh 'kubectl config use-context minikube'
-          sh 'minikube start'
-          sh 'minikube status'
           sh 'kubectl apply -f deployment.yaml'
         }
     }
