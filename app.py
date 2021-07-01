@@ -31,7 +31,7 @@ def city1():
     return 'call from city1 method'
 
 @app.route('/city2') # dynamic route
-def city1():
+def city2():
     return 'call from city1 method'
 
 if __name__ == '__main__':
