@@ -48,7 +48,10 @@ pipeline {
     stage("Deployment"){
       agent any
       steps {
+
+          sh 'minikube start --memory=3000 --cpu 3'
           sh 'eval $(minikube docker-env)'
+
           sh 'kubectl apply -f deployment.yaml'
           
         }
