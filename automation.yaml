@@ -9,11 +9,15 @@
      - name: docker image list
        shell: "echo docker images"
       
-     - name: docker build image
-       shell: "docker build -f Dockerfile -t python-docker ."
+     - name: docker env set
+       shell: "eval $(minikube docker-env)"
 
-    #  - name: Kubernetes Deployment
-    #    shell: "kubectl apply -f deployment.yaml"
+
+     - name: docker build image
+       shell: "docker build -f Dockerfile -t python-docker:v1 ."
+
+     - name: Kubernetes Deployment
+       shell: "kubectl apply -f deployment.yaml"
 
      - debug: var=version.stdout
 

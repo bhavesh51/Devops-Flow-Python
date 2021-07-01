@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: python-docker
-        image: python-docker:latest
+        image: python-docker:v1
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
