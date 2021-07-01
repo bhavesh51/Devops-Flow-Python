@@ -32,25 +32,19 @@ pipeline {
       steps {
         
           sh 'docker version'
-          sh 'docker build --tag python-docker .'
+          //sh 'docker build --tag python-docker .'
           sh 'docker image list'
          // sh 'docker tag python-docker-demo51 bhavesh51/devops_flow:latest'
       }   
     }
 
-    stage("Run Ansible"){
+    stage("Automate and Deployment"){
       agent any
       steps {
           sh 'ansible-playbook automation.yaml'
         }
     } 
 
-    stage("Kubernetes Deployment"){
-      agent any
-      steps {
-          sh 'kubectl apply -f deployment.yaml'
-        }
-    }
     
   }
   post {
