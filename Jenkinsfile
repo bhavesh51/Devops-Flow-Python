@@ -48,10 +48,9 @@ pipeline {
     stage("Deployment"){
       agent any
       steps {
-          sh 'minikube start'
-          sh 'minikube status'
-          sh 'kubectl create namespace jenkins'
-          sh 'get namespaces'
+          sh 'eval $(minikube docker-env)'
+          sh 'kubectl apply -f deployment.yaml'
+          
         }
     }
 
