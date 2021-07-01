@@ -48,12 +48,9 @@ pipeline {
     stage("Deployment"){
       agent any
       steps {
-
-          sh 'minikube start'
           sh 'eval $(minikube docker-env)'
-
+          sh 'kubectl config use-context minikube'
           sh 'kubectl apply -f deployment.yaml'
-          
         }
     }
 
