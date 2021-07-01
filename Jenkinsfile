@@ -50,6 +50,8 @@ pipeline {
       steps {
           sh 'eval $(minikube docker-env)'
           sh 'kubectl config use-context minikube'
+          sh 'minikube start'
+          sh 'minikube status'
           sh 'kubectl apply -f deployment.yaml'
         }
     }
