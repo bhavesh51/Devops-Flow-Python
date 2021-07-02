@@ -45,7 +45,6 @@ pipeline {
             sh script:'''
                             #/bin/bash
                             echo "PATH is: $PATH"
-                            pip install --user -r requirements.txt
                             export PATH="$WORKSPACE/.local/bin:$PATH"
                             ansible-playbook automation.yaml                              
                                 '''
