@@ -41,8 +41,15 @@ pipeline {
 
     stage("Automate"){
       agent any
-      steps {
-          sh 'ansible-playbook automation.yaml'
+      steps {withEnv(["HOME=${env.WORKSPACE}"]) {
+            sh script:'''
+                            #/bin/bash
+                            echo "PATH is: $PATH"
+                            pip install --user -r requirements.txt
+                            export PATH="$WORKSPACE/.local/bin:$PATH"
+                            ansible-playbook automation.yaml                              
+                                '''
+            }
         }
     }
 

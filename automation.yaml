@@ -5,6 +5,12 @@
      - name: get docker version
        shell: "docker -v | cut -d ' ' -f 3 | cut -d ',' -f 1"
        register: version
+      
+     - name: start minikube
+       shell: "chmod +x /home/pvips-guest/Desktop/Devops_Flow/Devops-Flow-Python/shell_automate.sh" 
+ 
+     - name: executing shell
+       shell: "/home/pvips-guest/Desktop/Devops_Flow/Devops-Flow-Python/shell_automate.sh" 
 
      - debug: var=version.stdout
 
@@ -15,6 +21,3 @@
      - name: do nothing if version is 1.13.0
        shell: "echo nothing"
        when: version.stdout != "1.13.0"
-
-#kubectl delete -n default deployment python-docker
-#kubectl delete -n default service python-docker-service
