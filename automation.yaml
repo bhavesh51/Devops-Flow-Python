@@ -6,19 +6,6 @@
        shell: "docker -v | cut -d ' ' -f 3 | cut -d ',' -f 1"
        register: version
 
-     - name: docker image list
-       shell: "echo docker images"
-      
-     - name: docker env set
-       shell: "eval $(minikube docker-env)"
-
-
-     - name: docker build image
-       shell: "docker build -f Dockerfile -t python-docker:v1 ."
-
-     - name: Kubernetes Deployment
-       shell: "kubectl apply -f deployment.yaml"
-
      - debug: var=version.stdout
 
      - name: do something if version is 1.13.0
@@ -28,3 +15,6 @@
      - name: do nothing if version is 1.13.0
        shell: "echo nothing"
        when: version.stdout != "1.13.0"
+
+#kubectl delete -n default deployment python-docker
+#kubectl delete -n default service python-docker-service

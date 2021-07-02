@@ -38,5 +38,9 @@ def city2():
 def state():
     return 'call from state method'
 
+@app.route('/viper') # dynamic route
+def viper():
+    return 'No where to Run, No where to Hide'
+
 if __name__ == '__main__':
     app.run()
