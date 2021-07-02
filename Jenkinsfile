@@ -39,18 +39,18 @@ pipeline {
       }   
     }
 
-    stage("Automate"){
-      agent any
-      steps {withEnv(["HOME=${env.WORKSPACE}"]) {
-            sh script:'''
-                            #/bin/bash
-                            echo "PATH is: $PATH"
-                            export PATH="$WORKSPACE/.local/bin:$PATH"
-                            ansible-playbook automation.yaml                              
-                                '''
-            }
-        }
-    }
+    // stage("Automate"){
+    //   agent any
+    //   steps {withEnv(["HOME=${env.WORKSPACE}"]) {
+    //         sh script:'''
+    //                         #/bin/bash
+    //                         echo "PATH is: $PATH"
+    //                         export PATH="$WORKSPACE/.local/bin:$PATH"
+    //                         ansible-playbook automation.yaml                              
+    //                             '''
+    //         }
+    //     }
+    // }
 
     // stage("Deployment"){
     //   agent any
